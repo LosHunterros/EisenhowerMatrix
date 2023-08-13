@@ -8,5 +8,48 @@ namespace EisenhowerMain
 {
     internal class TodoQuarter
     {
+        private readonly List<TodoItem> TodoItems;
+
+        public TodoQuarter()
+        {
+            TodoItems = new List<TodoItem>();
+        }
+        public void AddItem(string title, DateTime deadline)
+        {
+            TodoItems.Add(new TodoItem(title, deadline));
+        }
+        public void RemoveItem(int index)
+        {
+            TodoItems.RemoveAt(index);
+        }
+        public void ArchiveItems()
+        {
+            for (int i = TodoItems.Count - 1; i >= 0; i--)
+            {
+                if (GetItem(i).IsDone)
+                {
+                    RemoveItem(i);
+                }
+            }
+        }
+        public TodoItem GetItem(int index)
+        {
+            return TodoItems[index];
+        }
+        private List<TodoItem> GetItems()
+        {
+            return TodoItems;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            List<TodoItem> items = GetItems();
+            foreach (TodoItem item in items)
+            {
+                stringBuilder.Append(item.ToString() + "\n");
+            }
+            return stringBuilder.ToString();
+        }
     }
 }

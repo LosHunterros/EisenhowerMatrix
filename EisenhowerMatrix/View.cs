@@ -22,5 +22,15 @@ namespace EisenhowerMain
             Console.WriteLine();
             Console.Write("Chose option: ");
         }
+
+        public void AddTaskView(string title, string deadline, string importance)
+        {
+            Console.Clear();
+            Console.WriteLine("New Task");
+            Console.WriteLine();
+            Console.WriteLine($"Title: {title}");
+            Console.WriteLine($"Deadline: {deadline}");
+            Console.WriteLine($"Important: {importance}");
+        }
     }
 }

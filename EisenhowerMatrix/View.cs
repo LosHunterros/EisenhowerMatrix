@@ -11,13 +11,14 @@ namespace EisenhowerMain
         public View() { }
         public void MainScrean(TodoMatrix matrix)
         {
-            Console.WriteLine(matrix.ToString());
+            Console.WriteLine(matrix);
             Console.WriteLine();
-            Console.WriteLine("Options:");
+            Console.WriteLine("Menu:");
             Console.WriteLine("1. Add New Item");
             Console.WriteLine("2. Mark/Unmark Task");
             Console.WriteLine("3. Archive");
-            Console.WriteLine("4. Exit");
+            Console.WriteLine("4. Delete task");
+            Console.WriteLine("5. Exit");
             Console.WriteLine();
             Console.Write("Chose option: ");
         }

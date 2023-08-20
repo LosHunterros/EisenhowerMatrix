@@ -88,27 +88,23 @@ namespace EisenhowerMain
 
             for (int i = 0; i < maxLines; i++)
             {
-                matrixBuilder.Append("    | ");
+                matrixBuilder.Append("I   | ");
 
                 if (i < iuLines.Length)
                     matrixBuilder.Append(iuLines[i].PadRight(32));
                 else
-                    matrixBuilder.Append("                                ");
+                    matrixBuilder.Append("                             ");
 
                 matrixBuilder.Append("| ");
 
                 if (i < inLines.Length)
                     matrixBuilder.Append(inLines[i].PadRight(32));
                 else
-                    matrixBuilder.Append("                                ");
+                    matrixBuilder.Append("                            ");
 
                 matrixBuilder.AppendLine("|");
 
-                if (i == 1 || i == iuLines.Length - 1)
-                {
-                    matrixBuilder.AppendLine(
-                        "  I |--------------------------------|--------------------------------|  ");
-                }
+
             }
 
             matrixBuilder.AppendLine(
@@ -116,19 +112,19 @@ namespace EisenhowerMain
 
             for (int i = 0; i < maxLines; i++)
             {
-                matrixBuilder.Append("    | ");
+                matrixBuilder.Append("NI  | ");
 
                 if (i < nuLines.Length)
                     matrixBuilder.Append(nuLines[i].PadRight(32));
                 else
-                    matrixBuilder.Append("                                ");
+                    matrixBuilder.Append("                              ");
 
                 matrixBuilder.Append("| ");
 
                 if (i < nnLines.Length)
                     matrixBuilder.Append(nnLines[i].PadRight(32));
                 else
-                    matrixBuilder.Append("                                ");
+                    matrixBuilder.Append("                             ");
 
                 matrixBuilder.AppendLine("|");
             }

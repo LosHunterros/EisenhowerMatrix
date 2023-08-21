@@ -9,6 +9,8 @@ namespace EisenhowerMain
     internal class TodoMatrix
     {
         private readonly Dictionary<string, TodoQuarter> TodoQuarters;
+        public  QuartersName ActiveQuarter = 0;
+
 
         public TodoMatrix()
         {
@@ -61,6 +63,15 @@ namespace EisenhowerMain
             {
                 GetTodoQuarter(key).ArchiveItems();
             }
+        }
+
+        public void ChangeActiveQuarter()
+        {
+            if ((int)ActiveQuarter < 3)
+            {
+                ActiveQuarter++;
+            }
+            else ActiveQuarter = 0;
         }
 
         public override string ToString()

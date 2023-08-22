@@ -9,7 +9,8 @@ namespace EisenhowerMain
     internal class TodoMatrix
     {
         private readonly Dictionary<string, TodoQuarter> TodoQuarters;
-        public  QuartersName ActiveQuarter = 0;
+        public QuartersName ActiveQuarterName = QuartersName.IU;
+        public int ActiveTaskIndex = 0;
 
 
         public TodoMatrix()
@@ -21,6 +22,9 @@ namespace EisenhowerMain
                 {"NU",new TodoQuarter()},
                 {"NN",new TodoQuarter()},
             };
+
+
+
 
         }
         private Dictionary<string, TodoQuarter> GetTodoQuarters() { return TodoQuarters; }
@@ -67,13 +71,35 @@ namespace EisenhowerMain
 
         public void ChangeActiveQuarter()
         {
-            if ((int)ActiveQuarter < 3)
+            if ((int)ActiveQuarterName < 3)
             {
-                ActiveQuarter++;
+                ActiveQuarterName++;
+                ActiveTaskIndex = 0;
             }
-            else ActiveQuarter = 0;
+            else ActiveQuarterName = 0;
+            ActiveTaskIndex = 0;
         }
 
+        public void GoUpTaskList()
+        {
+            if (ActiveTaskIndex > 0)
+            {
+                ActiveTaskIndex--;
+            }
+            else
+            {
+                ActiveTaskIndex = TodoQuarters[ActiveQuarterName.ToString()].TodoItems.Count() - 1;
+            }
+        }
+
+        public void GoDownTaskList()
+        {
+            if (ActiveTaskIndex < TodoQuarters[ActiveQuarterName.ToString()].TodoItems.Count() - 1)
+            {
+                ActiveTaskIndex++;
+            }
+            else ActiveTaskIndex = 0;
+        }
         public override string ToString()
         {
 

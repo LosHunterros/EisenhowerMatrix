@@ -74,9 +74,11 @@ namespace EisenhowerMain
             if ((int)ActiveQuarterName < 3)
             {
                 ActiveQuarterName++;
-                ActiveTaskIndex = 0;
             }
-            else ActiveQuarterName = 0;
+            else
+            {
+                ActiveQuarterName = 0;
+            }
             ActiveTaskIndex = 0;
         }
 

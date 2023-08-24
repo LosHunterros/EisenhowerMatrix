@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace EisenhowerMain
 {
     internal class TodoQuarter
     {
-        private readonly List<TodoItem> TodoItems;
+        public readonly List<TodoItem> TodoItems;
 
         public TodoQuarter()
         {
@@ -32,10 +33,12 @@ namespace EisenhowerMain
                 }
             }
         }
+
         public TodoItem GetItem(int index)
         {
-            return TodoItems[index];
+                return TodoItems[index];
         }
+
         private List<TodoItem> GetItems()
         {
             return TodoItems;

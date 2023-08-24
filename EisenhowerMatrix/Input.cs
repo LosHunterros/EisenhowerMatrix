@@ -11,18 +11,13 @@ namespace EisenhowerMain
     {
         public Input() { }
 
-        public int GameOption()
-        {
-            string option = Console.ReadLine();
-            return Convert.ToInt32(option);
-        }
         public string InputTitle()
         {
             string title = Console.ReadLine();
             return title;
         }
 
-        public string InputDadeline()
+        public string InputDeadline()
         {
             string pattern = @"^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])$";
             string deadline = Console.ReadLine();
@@ -43,6 +38,26 @@ namespace EisenhowerMain
                 return importance;
             }
             return "Y/N";
+        }
+
+        public bool InputConfirmation() 
+        {
+            ConsoleKeyInfo confirmationKey = Console.ReadKey(intercept: true);
+
+            if (confirmationKey.Key == ConsoleKey.Y)
+            {
+                Console.Clear();
+                Console.WriteLine("Task deleted.");
+                Thread.Sleep(1000);
+                return true;
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Deletion cancelled.");
+                Thread.Sleep(1000);
+                return false;
+            }
         }
 
 

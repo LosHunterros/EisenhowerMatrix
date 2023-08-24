@@ -9,18 +9,17 @@ namespace EisenhowerMain
     internal class View
     {
         public View() { }
-        public void MainScrean(TodoMatrix matrix)
+        public void MainScreen(TodoMatrix matrix)
         {
+            Console.Clear();
             Console.WriteLine(matrix);
             Console.WriteLine();
-            Console.WriteLine("Menu:");
-            Console.WriteLine("1. Add New Item");
-            Console.WriteLine("2. Mark/Unmark Task");
-            Console.WriteLine("3. Archive");
-            Console.WriteLine("4. Delete task");
-            Console.WriteLine("5. Exit");
-            Console.WriteLine();
-            Console.Write("Chose option: ");
+            Console.WriteLine("Use [UP/DOWN] arrow keys to navigate tasks.");
+            Console.WriteLine("Press [TAB] to change quarters");
+            Console.WriteLine("Press [ENTER] to mark / unmark task.");
+            Console.WriteLine("Press [A] to add task.");
+            Console.WriteLine("Press [D] to delete task.");
+            Console.WriteLine("Press [S] to archive done tasks.");
         }
 
         public void AddTaskView(string title, string deadline, string importance)
@@ -31,6 +30,13 @@ namespace EisenhowerMain
             Console.WriteLine($"Title: {title}");
             Console.WriteLine($"Deadline: {deadline}");
             Console.WriteLine($"Important: {importance}");
+        }
+
+       public void RemoveIfSure(string title)
+        {
+            Input input = new Input();
+            Console.Clear();
+            Console.WriteLine($"Are you sure about removing task: {title}? Y/N");
         }
     }
 }

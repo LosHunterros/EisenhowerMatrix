@@ -26,6 +26,7 @@ namespace EisenhowerMain
         private DateTime GetDeadLine() { return Deadline; }
         public void Mark() { IsDone = true; }
         public void Unmark() { IsDone = false; }
+        public string CurrentTitle { get { return GetTitle(); } }
         public override string ToString()
         {
             string title = GetTitle();

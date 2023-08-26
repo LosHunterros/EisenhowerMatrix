@@ -10,6 +10,8 @@ namespace EisenhowerMain
     internal class TodoQuarter
     {
         public readonly List<TodoItem> TodoItems;
+        public int ActiveTaskIndex = 0;
+
 
         public TodoQuarter()
         {
@@ -36,12 +38,33 @@ namespace EisenhowerMain
 
         public TodoItem GetItem(int index)
         {
-                return TodoItems[index];
+            return TodoItems[index];
         }
 
         private List<TodoItem> GetItems()
         {
             return TodoItems;
+        }
+
+        public void GoUpTaskList()
+        {
+            if (ActiveTaskIndex > 0)
+            {
+                ActiveTaskIndex--;
+            }
+            else
+            {
+                ActiveTaskIndex = TodoItems.Count() - 1;
+            }
+        }
+
+        public void GoDownTaskList()
+        {
+            if (ActiveTaskIndex < TodoItems.Count() - 1)
+            {
+                ActiveTaskIndex++;
+            }
+            else ActiveTaskIndex = 0;
         }
 
         public override string ToString()

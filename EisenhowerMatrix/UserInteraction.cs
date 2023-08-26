@@ -30,18 +30,18 @@ namespace EisenhowerMain
                 switch (keyInfo.Key)
                 {
                     case ConsoleKey.UpArrow:
-                        _matrix.GoUpTaskList();
+                        activeQuarter.GoUpTaskList();
                         break;
                     case ConsoleKey.DownArrow:
-                        _matrix.GoDownTaskList();
+                        activeQuarter.GoDownTaskList();
                         break;
                     case ConsoleKey.Tab:
                         _matrix.ChangeActiveQuarter();
                         break;
                     case ConsoleKey.Enter:
-                        if (_matrix.ActiveTaskIndex >= 0 && _matrix.ActiveTaskIndex < activeQuarter.TodoItems.Count)
+                        if (activeQuarter.ActiveTaskIndex >= 0 && activeQuarter.ActiveTaskIndex < activeQuarter.TodoItems.Count)
                         {
-                            TodoItem activeTask = activeQuarter.GetItem(_matrix.ActiveTaskIndex);
+                            TodoItem activeTask = activeQuarter.GetItem(activeQuarter.ActiveTaskIndex);
                             activeTask.IsDone = !activeTask.IsDone;
                         }
                         break;
@@ -49,11 +49,11 @@ namespace EisenhowerMain
                         MenuAddTask(view, input, _matrix);
                         break;
                     case ConsoleKey.D:
-                        TodoItem taskToRemove = activeQuarter.GetItem(_matrix.ActiveTaskIndex);
+                        TodoItem taskToRemove = activeQuarter.GetItem(activeQuarter.ActiveTaskIndex);
                         view.RemoveIfSure(taskToRemove.CurrentTitle);
                         if (input.InputConfirmation())
                         {
-                            activeQuarter.RemoveItem(_matrix.ActiveTaskIndex);
+                            activeQuarter.RemoveItem(activeQuarter.ActiveTaskIndex);
                         }
                         break;
                     case ConsoleKey.S:

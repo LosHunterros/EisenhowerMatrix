@@ -10,7 +10,6 @@ namespace EisenhowerMain
     {
         private readonly Dictionary<string, TodoQuarter> TodoQuarters;
         public QuartersName ActiveQuarterName = QuartersName.IU;
-        public int ActiveTaskIndex = 0;
 
 
         public TodoMatrix()
@@ -79,29 +78,10 @@ namespace EisenhowerMain
             {
                 ActiveQuarterName = 0;
             }
-            ActiveTaskIndex = 0;
+
         }
 
-        public void GoUpTaskList()
-        {
-            if (ActiveTaskIndex > 0)
-            {
-                ActiveTaskIndex--;
-            }
-            else
-            {
-                ActiveTaskIndex = TodoQuarters[ActiveQuarterName.ToString()].TodoItems.Count() - 1;
-            }
-        }
 
-        public void GoDownTaskList()
-        {
-            if (ActiveTaskIndex < TodoQuarters[ActiveQuarterName.ToString()].TodoItems.Count() - 1)
-            {
-                ActiveTaskIndex++;
-            }
-            else ActiveTaskIndex = 0;
-        }
         public override string ToString()
         {
 

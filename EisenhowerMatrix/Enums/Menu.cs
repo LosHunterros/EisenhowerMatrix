@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EisenhowerMain
+namespace EisenhowerMain.Enums
 {
     public enum Menu
     {
         Add,
         Edit,
         Delete,
-        Mark,   
+        Mark,
         Archive,
         Exit
     }

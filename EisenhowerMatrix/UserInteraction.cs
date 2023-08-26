@@ -76,6 +76,7 @@ namespace EisenhowerMain
             while (!readyToAdd)
             {
                 view.AddTaskView(title, deadline, important);
+                // try replace if else with switch
                 Console.WriteLine();
                 if (title == " ")
                 {
@@ -102,14 +103,8 @@ namespace EisenhowerMain
 
             DateTime.TryParseExact(deadline, format, null, System.Globalization.DateTimeStyles.None, out parsedDate);
 
-            if (important == "Y")
-            {
-                _matrix.AddItem(title, parsedDate, true);
-            }
-            else
-            {
-                _matrix.AddItem(title, parsedDate, false);
-            }
+
+            _matrix.AddItem(title, parsedDate, important == "Y");
 
         }
     }

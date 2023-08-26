@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EisenhowerMain.Enums;
 
 namespace EisenhowerMain
 {
@@ -14,15 +15,11 @@ namespace EisenhowerMain
 
         public TodoMatrix()
         {
-            TodoQuarters = new Dictionary<string, TodoQuarter>()
+            TodoQuarters = new Dictionary<string, TodoQuarter>();
+            foreach (QuartersName quarter in Enum.GetValues(typeof(QuartersName)))
             {
-                {"IU",new TodoQuarter()},
-                {"IN",new TodoQuarter()},
-                {"NU",new TodoQuarter()},
-                {"NN",new TodoQuarter()},
-            };
-
-
+                TodoQuarters.Add(quarter.ToString(), new TodoQuarter());
+            }
 
 
         }
@@ -35,8 +32,7 @@ namespace EisenhowerMain
         public void AddItem(string title, DateTime deadline, bool isImportant)
         {
             string status;
-            DateTime startDate = DateTime.Now;
-            double days = (deadline - startDate).TotalDays;
+            double days = (deadline - DateTime.Now).TotalDays;
             if (isImportant)
             {
                 status = days > 3 ? "IN" : "IU";
@@ -52,8 +48,7 @@ namespace EisenhowerMain
         public void AddItem(string title, DateTime deadline)
         {
             string status;
-            DateTime startDate = DateTime.Now;
-            double days = (deadline - startDate).TotalDays;
+            double days = (deadline - DateTime.Now).TotalDays;
             status = days > 3 ? "NN" : "NU";
             TodoQuarter quarter = GetTodoQuarter(status);
             quarter.AddItem(title, deadline);

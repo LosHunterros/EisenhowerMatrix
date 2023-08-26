@@ -56,6 +56,7 @@ namespace EisenhowerMain
             {
                 ActiveTaskIndex = TodoItems.Count() - 1;
             }
+            //   ActiveTaskIndex = ActiveTaskIndex > 0 ? ActiveTaskIndex-1 : TodoItems.Count() - 1;
         }
 
         public void GoDownTaskList()

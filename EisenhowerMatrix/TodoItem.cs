@@ -31,13 +31,8 @@ namespace EisenhowerMain
         {
             string title = GetTitle();
             string deadline = GetDeadLine().ToString("dd-MM");
-            string mark = "[ ]";
-            if (IsDone)
-            {
-                mark = "[X]";
-            }
-            string task = string.Concat(mark, " ", deadline, " ", title);
-            return task;
+            string mark = IsDone ? "[X]" : "[ ]";
+            return $"{mark} {deadline} {title}";
         }
 
 

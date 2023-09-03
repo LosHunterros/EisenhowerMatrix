@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EisenhowerMain.Enums;
 
 namespace EisenhowerMain
 {
@@ -10,20 +11,15 @@ namespace EisenhowerMain
     {
         private readonly Dictionary<string, TodoQuarter> TodoQuarters;
         public QuartersName ActiveQuarterName = QuartersName.IU;
-        public int ActiveTaskIndex = 0;
 
 
         public TodoMatrix()
         {
-            TodoQuarters = new Dictionary<string, TodoQuarter>()
+            TodoQuarters = new Dictionary<string, TodoQuarter>();
+            foreach (QuartersName quarter in Enum.GetValues(typeof(QuartersName)))
             {
-                {"IU",new TodoQuarter()},
-                {"IN",new TodoQuarter()},
-                {"NU",new TodoQuarter()},
-                {"NN",new TodoQuarter()},
-            };
-
-
+                TodoQuarters.Add(quarter.ToString(), new TodoQuarter());
+            }
 
 
         }
@@ -36,8 +32,7 @@ namespace EisenhowerMain
         public void AddItem(string title, DateTime deadline, bool isImportant)
         {
             string status;
-            DateTime startDate = DateTime.Now;
-            double days = (deadline - startDate).TotalDays;
+            double days = (deadline - DateTime.Now).TotalDays;
             if (isImportant)
             {
                 status = days > 3 ? "IN" : "IU";
@@ -53,8 +48,7 @@ namespace EisenhowerMain
         public void AddItem(string title, DateTime deadline)
         {
             string status;
-            DateTime startDate = DateTime.Now;
-            double days = (deadline - startDate).TotalDays;
+            double days = (deadline - DateTime.Now).TotalDays;
             status = days > 3 ? "NN" : "NU";
             TodoQuarter quarter = GetTodoQuarter(status);
             quarter.AddItem(title, deadline);
@@ -74,32 +68,15 @@ namespace EisenhowerMain
             if ((int)ActiveQuarterName < 3)
             {
                 ActiveQuarterName++;
-                ActiveTaskIndex = 0;
-            }
-            else ActiveQuarterName = 0;
-            ActiveTaskIndex = 0;
-        }
-
-        public void GoUpTaskList()
-        {
-            if (ActiveTaskIndex > 0)
-            {
-                ActiveTaskIndex--;
             }
             else
             {
-                ActiveTaskIndex = TodoQuarters[ActiveQuarterName.ToString()].TodoItems.Count() - 1;
+                ActiveQuarterName = 0;
             }
+
         }
 
-        public void GoDownTaskList()
-        {
-            if (ActiveTaskIndex < TodoQuarters[ActiveQuarterName.ToString()].TodoItems.Count() - 1)
-            {
-                ActiveTaskIndex++;
-            }
-            else ActiveTaskIndex = 0;
-        }
+
         public override string ToString()
         {
 

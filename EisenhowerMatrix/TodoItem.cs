@@ -26,17 +26,13 @@ namespace EisenhowerMain
         private DateTime GetDeadLine() { return Deadline; }
         public void Mark() { IsDone = true; }
         public void Unmark() { IsDone = false; }
+        public string CurrentTitle { get { return GetTitle(); } }
         public override string ToString()
         {
             string title = GetTitle();
             string deadline = GetDeadLine().ToString("dd-MM");
-            string mark = "[ ]";
-            if (IsDone)
-            {
-                mark = "[X]";
-            }
-            string task = string.Concat(mark, " ", deadline, " ", title);
-            return task;
+            string mark = IsDone ? "[X]" : "[ ]";
+            return $"{mark} {deadline} {title}";
         }
 
 

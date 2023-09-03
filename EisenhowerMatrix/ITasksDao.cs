@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace EisenhowerMain
 {
-    public enum Menu
+    internal interface ITasksDao
     {
-        Add,
-        Edit,
-        Delete,
-        Mark,   
-        Archive,
-        Exit
     }
 }

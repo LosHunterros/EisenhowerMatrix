@@ -9,9 +9,9 @@ namespace EisenhowerMain
 {
     internal class TodoItem
     {
-        private readonly string Title;
+        public string Title;
 
-        private readonly DateTime Deadline;
+        public DateTime Deadline;
 
         public bool IsDone;
 

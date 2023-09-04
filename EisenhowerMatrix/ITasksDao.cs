@@ -8,11 +8,11 @@ namespace EisenhowerMain
 {
     internal interface ITasksDao
     {
-        public void AddTask(Task task);
+        public void AddTask(TodoItem task);
 
         public void UpdateTask(int id);
 
-        public void DeleteTask(Task task);
+        public void DeleteTask(TodoItem task);
 
         public List<Task> GetAllTasks();
 

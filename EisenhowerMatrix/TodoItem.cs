@@ -22,6 +22,13 @@ namespace EisenhowerMain
             IsDone = false;
         }
 
+        public TodoItem(string title, DateTime deadline, bool done)
+        {
+            Title = title;
+            Deadline = deadline;
+            IsDone = done;
+        }
+
         private string GetTitle() { return Title; }
         private DateTime GetDeadLine() { return Deadline; }
         public void Mark() { IsDone = true; }

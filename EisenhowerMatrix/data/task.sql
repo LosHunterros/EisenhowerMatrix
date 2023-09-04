@@ -11,7 +11,7 @@ CREATE TABLE tasks (
 );
 
 INSERT INTO tasks(Title, Deadline, Important, Done) VALUES
-('Finish Eisenhower matrix', '2023-09-10',1,0),
-('Clean kitchen', '2023-09-13',0,0),
-('Go to gym', '2023-09-15',0,0)
+('Finish Eisenhower matrix', '10-09-2023',1,0),
+('Clean kitchen', '13-09-2023',0,0),
+('Go to gym', '20-09-2023',0,0)
 ;

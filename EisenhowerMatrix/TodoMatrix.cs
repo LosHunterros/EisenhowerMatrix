@@ -7,7 +7,7 @@ using EisenhowerMain.Enums;
 
 namespace EisenhowerMain
 {
-    internal class TodoMatrix
+    public class TodoMatrix
     {
         private readonly Dictionary<string, TodoQuarter> TodoQuarters;
         public QuartersName ActiveQuarterName = QuartersName.IU;

@@ -11,8 +11,11 @@ namespace EisenhowerMain
         static void Main(String[] args)
         {
             TodoMatrix todoMatrix = new TodoMatrix();
-            UserInteraction interaction = new UserInteraction(todoMatrix);
+
             bool run = true;
+            var menager = new DataManager();
+            menager.DisplayTasks(todoMatrix);
+            UserInteraction interaction = new UserInteraction(todoMatrix);
             while (run)
             {
                 interaction.MenuInteraction();

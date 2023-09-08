@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EisenhowerMain
 {
-    internal class TodoQuarter
+    public class TodoQuarter
     {
         public readonly List<TodoItem> TodoItems;
         public int ActiveTaskIndex = 0;

@@ -22,6 +22,7 @@ namespace EisenhowerMain
 
             while (run)
             {
+
                 view.MainScreen(_matrix);
 
                 ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);

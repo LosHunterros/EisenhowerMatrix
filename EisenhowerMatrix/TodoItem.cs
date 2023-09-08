@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EisenhowerMain
 {
-    internal class TodoItem
+    public class TodoItem
     {
         public string Title;
 

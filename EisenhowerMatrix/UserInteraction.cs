@@ -16,7 +16,7 @@ namespace EisenhowerMain
         {
             _matrix = matrix;
         }
-        public void MenuInteraction()
+        public void MenuInteraction(DataManager dataManager)
         {
             bool run = true;
 
@@ -47,7 +47,7 @@ namespace EisenhowerMain
                         }
                         break;
                     case ConsoleKey.A:
-                        MenuAddTask(view, input, _matrix);
+                        MenuAddTask(view, input, _matrix, dataManager);
                         break;
                     case ConsoleKey.D:
                         TodoItem taskToRemove = activeQuarter.GetItem(activeQuarter.ActiveTaskIndex);
@@ -68,7 +68,7 @@ namespace EisenhowerMain
         }
         View view = new View();
         Input input = new Input();
-        private static void MenuAddTask(View view, Input input, TodoMatrix _matrix)
+        private static void MenuAddTask(View view, Input input, TodoMatrix _matrix, DataManager dataManager)
         {
             bool readyToAdd = false;
             string title = " ";
@@ -103,9 +103,8 @@ namespace EisenhowerMain
             DateTime parsedDate;
 
             DateTime.TryParseExact(deadline, format, null, System.Globalization.DateTimeStyles.None, out parsedDate);
+            dataManager.AddNewTask(new TodoItem(title, parsedDate), important == "Y");
 
-
-            _matrix.AddItem(title, parsedDate, important == "Y");
 
         }
     }

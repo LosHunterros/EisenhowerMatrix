@@ -50,6 +50,13 @@ namespace EisenhowerMain
 
         }
 
+        public void AddNewTask(TodoItem task, bool isImportant)
+        {
+
+            tasksDao.AddTask(task, isImportant);
+
+        }
+
 
 
     }
